@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { data, Link } from 'react-router-dom';
+import { data, Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   // initialize the hook(they help us manage states of an application)
@@ -13,6 +13,7 @@ const Signup = () => {
   const[loading, setLoading] = useState("");
   const[success, setSuccess] = useState("");
   const[error, setError] = useState("");
+  const navigate = useNavigate();
 
   // below is a function that will handle the submit action
   const handleSubmit = async(e) =>{
@@ -46,6 +47,12 @@ const Signup = () => {
       setEmail("");
       setPassword("");
       setPhone("");
+
+      setTimeout(() => {
+        setSuccess("");
+      }, 5000);
+
+      navigate("/signin")
     }
     catch(error){
       // set the loading hook back to default
@@ -61,9 +68,10 @@ const Signup = () => {
         <div className="card col-md-6 shadow p-4">
           <h1 className='text-primary'>Sign Up</h1>
 
-          <h5 className="text-warning">{loading}</h5>
+          <h5 className="text-info">{loading}</h5>
           <h3 className='text-success'>{success}</h3>
           <h4 className="text-danger">{error}</h4>
+          
           <form onSubmit={handleSubmit}>
             <input type="text"
             placeholder='Enter the username'
