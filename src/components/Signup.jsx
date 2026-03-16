@@ -9,7 +9,7 @@ const Signup = () => {
   const[password, setPassword] = useState("");
   const[phone, setPhone] =useState("");
 
-  // Dfine the three states the application will go through
+  // Define the three states the application will go through
   const[loading, setLoading] = useState("");
   const[success, setSuccess] = useState("");
   const[error, setError] = useState("");
@@ -113,7 +113,7 @@ const Signup = () => {
             <input type="submit" value="Signup" className='btn btn-primary'/>
             <br /><br />
 
-            Already have an account? <Link to={'/signin'}>Signin</Link>
+            Already have an account? <Link to={'/signin'}>Sign in</Link>
           </form>
         </div>
     </div>
