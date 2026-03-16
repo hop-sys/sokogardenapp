@@ -46,7 +46,7 @@ const Signin = () => {
           // store user details in local storage
           localStorage.setItem("user", JSON.stringify(response.data.user));
           navigate("/");
-          const user = JSON.parse(localStorage.getItem("user"));
+          // const user = JSON.parse(localStorage.getItem("user"));
           // console.log(response.data.user);
 
           // if it is successful let a person get redirected to another page
