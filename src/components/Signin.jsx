@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signin = () => {
 
@@ -41,10 +41,12 @@ const Signin = () => {
         // check whether the user exists as part of your response from the API
         if(response.data.user){
           // if user is there, definatelythe details entered during signin are correct
-          // setSuccess("Welcome back! Login successful.")
+          setSuccess("Welcome back! Login successful.")
 
-            localStorage.setItem("user", JSON.stringify(response.data.user));
+          localStorage.setItem("user", JSON.stringify(response.data.user));
           navigate("/");
+          const user = JSON.parse(localStorage.getItem("user"));
+          // console.log(response.data.user);
 
           // if it is successful let a person get redirected to another page
         }
@@ -93,7 +95,9 @@ const Signin = () => {
             <input type="submit"
             value="Sign in"
             className='btn btn-primary' 
-            required/>
+            required/> <br /> <br />
+
+            Don't have an account? <Link to = "/signup">Sign up</Link>
           </form>
         </div>
     </div>
