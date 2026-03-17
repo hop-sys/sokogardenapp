@@ -49,6 +49,10 @@ const Signin = () => {
           // const user = JSON.parse(localStorage.getItem("user"));
           // console.log(response.data.user);
 
+          setTimeout(() => {
+        setSuccess("");
+      }, 1000);
+
           // if it is successful let a person get redirected to another page
         }
         else{

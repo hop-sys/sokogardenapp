@@ -50,7 +50,7 @@ const Signup = () => {
 
       setTimeout(() => {
         setSuccess("");
-      }, 5000);
+      }, 1000);
 
       navigate("/signin")
     }

@@ -49,9 +49,11 @@ const Addproducts = () => {
       setProductCost("");
       setProductPhoto("");
 
+      e.target.reset()
+
       setTimeout(() => {
         setSuccess("");
-      }, 5000);
+      }, 1000);
     }
     catch(error){
       setLoading(false);
