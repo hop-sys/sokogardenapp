@@ -1,12 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Loader from './Loader';
+import { useNavigate } from 'react-router-dom';
 
 const Getproducts = () => {
   // 1.Inititlize hooks to help you manage the state of your application
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState ("");
+
+  // declare the navigate hook
+  const navigate = useNavigate()
 
   // below we specify the image base url
   const img_url = "https://hope.alwaysdata.net/static/images/"
@@ -55,7 +59,7 @@ const Getproducts = () => {
 
         {/* map the products fetched from the API to the UI */}
         {products.map((product) => (
-          <div key={product.id} className="col-md-3 justify-content-ceter mb-3">
+          <div key={product.id} className="col-md-3 justify-content-center mb-3">
             <div className="card shadow">
               
               <img 
@@ -69,6 +73,8 @@ const Getproducts = () => {
                 <p className="text-dark">{product.product_description.slice(0, 100)}...</p>
 
                 <h4 className="text-warning">Ksh {product.product_cost}</h4>
+
+                <button className="btn btn-outline-info" onClick={() => navigate("/makepayment", {state: {product}})}>Purchase Now</button>
               </div>
             </div>
           </div>
